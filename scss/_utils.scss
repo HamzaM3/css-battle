@@ -1,0 +1,15 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin grid-center {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+@function unit($px) {
+    @return calc($px * 100vw / (var(--nb-cols) * 400));
+}

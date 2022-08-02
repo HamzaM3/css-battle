@@ -1,0 +1,27 @@
+#container > div {
+    width: calc(100vw / var(--nb-cols));
+    height: calc(3 * 100vw / (4 * var(--nb-cols)));
+    padding: 0;
+    overflow: hidden;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+:root {
+    --nb-cols: 1
+}
+
+@for $i from 1 through 7 {
+    $width: $i * 400px;
+    @media (min-width: $width) {
+        #container {
+            display: grid;
+            grid-template-columns: repeat($i, 1fr);
+        }
+        :root {
+            --nb-cols: #{$i}
+        }
+    }
+}
