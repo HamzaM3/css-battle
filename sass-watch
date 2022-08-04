@@ -1,0 +1,3 @@
+#! /bin/sh
+
+sass -w scss/style.scss:style.css
