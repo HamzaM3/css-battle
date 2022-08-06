@@ -1,0 +1,68 @@
+@use 'utils' as *;
+
+
+#_52 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #6592CF;
+    .container {
+        width: 80%;
+        height: unit(80);
+        display: flex;
+        justify-content: space-between;
+    }
+    .street-lamp {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        .head {
+            width: unit(20);
+            height: unit(20);
+            background: #243D83;
+            border-radius: 50%;
+            display:flex;
+            justify-content: center;
+            align-items: end;
+            &::before {
+                /* Connector to avoid the holes */
+                content: '';
+                display: block;
+                width: unit(10);
+                height: unit(10);
+                background: #243D83;
+            }
+        }
+        .bar {
+            width: unit(10);
+            height: unit(40);
+            background: #243D83;
+        }
+    }
+    .lit {
+        position: relative;
+        &::before {
+            content:'';
+            display: block;
+            background: #EEB850;
+            position: absolute;
+            top: 0;
+            border-radius: 50%;
+            z-index: -1;
+            transform: translateY(unit(10));
+            
+            height: unit(40);
+            width: unit(40);
+        }
+        &.strong::before {
+            transform: translateY(unit(-10));
+            
+            height:unit(60);
+            width: unit(60);
+        }
+    }
+    .empty {
+        width:unit(6)
+    }
+}

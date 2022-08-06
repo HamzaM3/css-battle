@@ -1,7 +1,6 @@
 #container > div {
     width: calc(100vw / var(--nb-cols));
     height: calc(3 * 100vw / (4 * var(--nb-cols)));
-    padding: 0;
     overflow: hidden;
 }
 
