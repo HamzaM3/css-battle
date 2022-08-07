@@ -1,0 +1,237 @@
+@use 'utils' as *;
+
+#_62 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #191919;
+    .container {
+        width: unit(150);
+        height: unit(200);
+        background: #F2AD43;
+        border-radius: unit(75) unit(75) unit(20) unit(20);
+        overflow: hidden;
+        position: relative;
+    }
+    .left-hill {
+        background: #E08027;
+        border-radius: 50%;
+        width: unit(200);
+        height: unit(200);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translate(-50%, 50%);
+    }
+    .right-hill {
+        background: #824B20;
+        border-radius: 50%;
+        width: unit(200);
+        height: unit(200);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(50%, 50%);
+        z-index: 200;
+    }
+    .sun {
+        background: #FFF58F;
+        border-radius: 50%;
+        width: unit(60);
+        height: unit(60);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(unit(75), unit(120)) translate(-50%, -50%);
+    }
+}
+#_63 {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: #191919;
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        transform: translate(unit(1), unit(-1));
+        > div {
+            width: unit(70);
+            height: unit(70);
+            box-sizing: border-box;
+            border: unit(10) solid #5DBCF9;
+        }
+        :nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+            border-radius: unit(35) unit(35) 0 unit(35);
+            transform: translate(unit(10), unit(10))
+        }
+        :nth-child(2) {
+            grid-column: 3;
+            grid-row: 1;
+            border-radius: unit(35) unit(35) unit(35) 0 ;
+            transform: translate(unit(-10), unit(10))
+        }
+        :nth-child(3) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        :nth-child(4) {
+            grid-column: 1;
+            grid-row: 3;
+            border-radius: unit(35) 0 unit(35) unit(35);
+            transform: translate(unit(10), unit(-10))
+        }
+        :nth-child(5) {
+            grid-column: 3;
+            grid-row: 3;
+            border-radius: 0 unit(35) unit(35) unit(35);
+            transform: translate(unit(-10), unit(-10))
+        }
+    }
+}
+#_64 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #191919;
+    .container {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        > div {
+            grid-row: 1;
+            grid-column: 1;
+        }
+    }
+    .knob {
+        width: unit(100);
+        height: unit(100);
+        background: #E08027;
+        border-radius: 50%;
+        border: unit(30) solid #824B20;
+    }
+    .shine {
+        width: unit(120);
+        height: unit(60);
+        border-left: unit(20) solid #FFF58F;    
+        border-right: unit(20) solid #FFF58F;
+        border-bottom: unit(20) solid #FFF58F;
+        box-sizing: border-box;
+        border-radius: 0 0 unit(60) unit(60);
+        transform: translateY(unit(30));
+        &::before {
+        content:'';
+            display: block;
+            width: unit(20);
+            height: unit(20);
+            background: #FFF58F;
+            border-radius: 50%;
+            transform: translate(unit(-20), unit(-10))
+        }
+        &::after {
+            content:'';
+            display: block;
+            width: unit(20);
+            height: unit(20);
+            background: #FFF58F;
+            border-radius: 50%;
+            transform: translate(unit(80), unit(-30))
+        }
+    }
+}
+#_65 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: unit(25);
+    background: #191919;
+    [speaker] {
+        border-top: unit(75) solid transparent;
+        border-bottom: unit(75) solid transparent;
+        border-right: unit(76) solid #5DBCF9;
+        > div {
+        width: unit(50);
+        height: unit(50);
+        background: #5DBCF9;
+        border-radius: unit(10) 0 0 unit(10)
+        }
+    }
+    [circle], [circle] div {
+        width: unit(100);
+        height: unit(200);
+        background: #191919;
+        box-sizing: border-box;
+        border-radius: 0 unit(100) unit(100) 0;
+        border-right: unit(10) solid #5DBCF9;
+        border-top: unit(10) solid #5DBCF9;
+        border-bottom: unit(10) solid #5DBCF9;
+        display: flex;
+        justify-content: start;
+        align-items: center
+    }
+    [circle] > div {
+        width: unit(75);
+        height: unit(150);
+    }
+    [circle] > div > div {
+        width: unit(50);
+        height: unit(100);
+    }
+}
+#_67 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container {
+        background: #5DBCF9;
+        display: grid;
+        grid-template-columns: unit(140) unit(140) unit(140) unit(140);
+        grid-template-rows: unit(100) unit(100) unit(100);
+        gap : unit(50) unit(10);
+
+        div {
+            height: unit(110);
+            background: #191919;
+        }
+        
+        :nth-child(even) {
+            transform: translateY(unit(-30))
+        }
+        :nth-child(odd) {
+            transform: translateY(unit(20))
+        }
+    }
+}
+#_68 {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background: #191919;
+    div {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    [bell] {
+        width: unit(120);
+        height: unit(120);
+        background: #E08027;
+        border-radius: unit(60) unit(60) unit(10) unit(10) ;
+        z-index: 1000
+    }
+    [top] {
+        border-radius: 50%;
+        height: unit(50);
+        width: unit(50);
+        background: #F2AD43;
+        transform: translateY(unit(-60))
+    }
+    [bottom] {
+        border-radius: 50%;
+        height: unit(50);
+        width: unit(50);
+        background: #824B20;
+        transform: translateY(unit(60))
+    }
+}
