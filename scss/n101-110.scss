@@ -1,0 +1,192 @@
+@use 'utils' as *;
+
+#_106 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    .container {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: 1fr;
+        width:unit(165);
+        height: unit(115);
+        > div{
+            grid-row: 1;
+            grid-column: 1;
+        }
+    }
+    .right-apple {
+        background: #D4392D;
+        width: unit(105);
+        align-self:stretch;
+        justify-self: end;
+        transform:  matrix(1, 0, -.15, 1, 0, 0);
+        border-radius: 50%;
+    }
+    .left-apple {
+        background: #D4392D;
+        width: unit(105);
+        align-self:stretch;
+        justify-self: start;
+        transform:  matrix(1, 0, .15, 1, 0, 0);
+        border-radius: 50%;
+    }
+    .shadow-top {
+        background: #000000;
+        width: unit(60);
+        height: unit(60);
+        align-self:center;
+        justify-self: start;
+        z-index: 100;
+        border-radius: 50%;
+        transform: translate(unit(-27), unit(-23))
+    }
+    .shadow-bottom {
+        background: #000000;
+        width: unit(58);
+        height: unit(58);
+        align-self:center;
+        justify-self: start;
+        z-index: 100;
+        border-radius: 50%;
+        transform: translate(unit(-25), unit(16))
+    }
+    .branch {
+        background: #D4392D;
+        width: unit(10);
+        height: unit(58);
+        align-self:start;
+        justify-self: center;
+        z-index: 100;
+        transform: translateY(unit(-23))
+    }
+}
+#_108 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    .container {
+        width: unit(300);
+        height: unit(150);
+        background: #E96A23;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        > div {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        :nth-child(1) {
+            background: black;
+            width: unit(270);
+            height: unit(90);
+            border-radius:unit(12);
+            z-index: 100;
+        }
+        :nth-child(2) {
+            background: black;
+            width: unit(240);
+            height: unit(120);
+            border-radius:unit(12);
+            z-index: 200;
+        }
+        :nth-child(3) {
+            background: black;
+            width: unit(210);
+            height: unit(90);
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: unit(5) solid #EBAE11;
+            z-index: 300;
+        }
+        :nth-child(4) {
+            background: black;
+            width: unit(130);
+            height: unit(70);
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: unit(5) solid #EBAE11;
+            z-index: 400;
+        }
+        :nth-child(5) {
+            background: #EBAE11;
+            width: unit(50);
+            height: unit(50);
+            border-radius: 50%;
+            z-index: 500;
+        }
+        :nth-child(6) {
+            background: #EBAE11;
+            width: unit(50);
+            height: unit(150);
+            transform: matrix(1, 0, .27, -1, 0, 0) translateX(unit(-20));
+            z-index: 0;
+        }
+        :nth-child(7) {
+            background: #EBAE11;
+            width: unit(50);
+            height: unit(150);
+            transform: matrix(.5, 0, .27, -1, 0, 0) translateX(unit(70));
+            z-index: 0;
+        }
+    }
+}
+#_109 {
+    box-sizing: border-box;
+    padding:unit(12);
+    background: #191919;
+    display: flex;
+    gap: unit(20);
+    div > div {
+        width: unit(40);
+        height: unit(40);
+        border-radius: 100%;
+        background: #F6E59C;
+        margin-bottom: unit(20)
+    }
+}
+#_110 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D25B70;
+    .container {
+        width: unit(100);
+        height: unit(110);
+        display: grid;
+        align-items: end;
+        justify-items: center;
+        > div {
+            grid-column : 1;
+            grid-row: 1;
+            width: unit(10);
+            height: unit(100);
+            background: #F2E09F;
+            border-radius: unit(5);
+        }
+        :nth-child(1) {
+            transform: translateY(unit(-25));
+        }
+        :nth-child(2) {
+            transform: translate(unit(70), unit(45)) rotate(90deg) ;
+        }
+        :nth-child(3) {
+            transform: translate(unit(35), unit(-15)) rotate(30deg) ;
+        }
+        :nth-child(4) {
+            transform: translate(unit(60), unit(10)) rotate(60deg) ;
+        }
+        :nth-child(5) {
+            transform: translate(unit(-70), unit(45)) rotate(-90deg) ;
+        }
+        :nth-child(6) {
+            transform: translate(unit(-60), unit(10)) rotate(-60deg) ;
+        }
+        :nth-child(7) {
+            transform: translate(unit(-35), unit(-15)) rotate(-30deg) ;
+        }
+    }
+}

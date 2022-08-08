@@ -9,7 +9,23 @@
         background: #b5e0ba;
     }
 }
-
+#_2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #62374e;
+    .container {
+        display : grid;
+        grid-template-columns: auto auto;
+        column-gap: unit(200);
+        row-gap: unit(100);
+        div {
+            width: unit(50);
+            height: unit(50);
+            background:#fdc57b;
+        }
+    }
+}
 #_3 {
     background : #6592CF;
     @include flex-center();
