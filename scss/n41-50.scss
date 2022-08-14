@@ -175,3 +175,45 @@
         border-radius: unit(20)
     }
 }
+#_49 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #6592CF;
+    .container {
+        display: grid;
+        height: unit(200);
+        justify-items: center;
+    }
+    .roof {
+        grid-row: 1;
+        grid-column: 1;
+        border-left: unit(100) solid transparent;
+        border-right: unit(100) solid transparent;
+        border-bottom: unit(100) solid #243D83;
+    }
+    .wall, .window, .door {
+        grid-row: 2;
+        grid-column: 1;
+    }
+    .wall {
+        width: unit(150);
+        height: unit(100);
+        background: #243D83;
+        border-radius: 0 0 unit(10) unit(10);
+    }
+    .window {
+        height: unit(10);
+        width: unit(100);
+        background: #EEB850;
+        transform: translateY(unit(-5));
+        border-radius: unit(5);
+    }
+    .door {
+        align-self: end;
+        background: #EEB850;
+        height: unit(50);
+        width: unit(50);
+        border-radius: unit(10) unit(10) 0 0;
+    }
+}
