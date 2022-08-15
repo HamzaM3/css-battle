@@ -1,0 +1,42 @@
+@use 'utils';
+@use 'sass:math';
+
+#o11 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fbf9fc;
+
+    $r: 100;
+    $n: 16;
+    $string: 5;
+    
+    $alpha: 360deg / $n;
+    $pearl-radius: $r * math.sin($alpha/2);
+    
+    .container {
+        border: #{$string}px solid black;
+        height: #{2*$r - $string}px;
+        width: #{2*$r - $string}px;
+        border-radius: 50%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        > div {
+            border-radius: 50%;
+            height: #{2*.8*$pearl-radius}px;
+            width: #{2*.8*$pearl-radius}px;
+            background: #eacfc8;
+            grid-row: 1;
+            grid-column: 1;
+            box-sizing: border-box;
+            border: 3px solid black;
+        }
+        
+        @for $i from 1 through $n {
+            :nth-child(#{$i}) {
+                translate: #{$r * math.cos($i * $alpha)}px #{$r * math.sin($i * $alpha)}px;
+            }
+        }
+    }
+}

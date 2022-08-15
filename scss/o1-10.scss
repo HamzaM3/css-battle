@@ -601,3 +601,136 @@
         }
     }
 }
+
+#o9 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #E3AF66;
+
+    .container {
+        width: unit(200);
+        height: unit(200);
+        background: black;
+        border-radius: 50%;
+        border: unit(10) solid #9A2A2A;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .inside {
+        width: unit(160);
+        height: unit(160);
+        background: #FFD700;
+        border-radius: 50%;
+        border: unit(10) solid #9A2A2A;
+        
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        div {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        
+        overflow: hidden;
+        :nth-child(1) {
+            border-bottom: #{math.sqrt(3) * 160/2}px solid #9A2A2A;
+            border-left: unit(80) solid transparent;
+            border-right: unit(80) solid transparent;
+        }
+        :nth-child(2) {
+            border-bottom: #{math.sqrt(3) * 120/2}px solid #FFD700;
+            border-left: unit(60) solid transparent;
+            border-right: unit(60) solid transparent;
+        }
+    }
+}
+
+
+#o10 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #9B945F;
+    .container {
+        display: grid;
+        >div {
+            grid-row:1;
+            grid-column:1;
+        }
+    }
+    
+    @mixin tangent-triangle($r, $alpha, $dir, $color) {
+        $c: $r / math.tan($alpha/2);
+        $g: $c * math.cos($alpha/2);
+        $f: $c * math.sin($alpha/2);
+        
+        @if ($dir == up) {
+            border-right: #{$f}px solid transparent;
+            border-left: #{$f}px solid transparent;
+            border-bottom: #{$g}px solid $color;
+        }@else {
+            border-right: #{$f}px solid transparent;
+            border-left: #{$f}px solid transparent;
+            border-top: #{$g}px solid $color;
+        }
+    }
+    
+    @mixin leaf($r, $alpha, $beta, $color) {
+        display: grid;
+        grid-template-rows: #{$ua}px #{2*$r}px #{$ub}px;
+        .top {
+        @include tangent-triangle($r, $alpha, up, $color);
+            grid-row: 1 / span 2;
+            grid-column:1;
+            justify-self: center;
+            align-self: start
+        }
+        .bottom {
+        @include tangent-triangle($r, $beta, down, $color);
+            grid-row: 2 / span 2;
+            grid-column:1;
+            justify-self: center;
+            align-self: end
+        }
+    
+        .circle {
+            background: $color;
+            height: #{2*$r}px;
+            width: #{2*$r}px;
+            border-radius: 50%;
+            grid-row: 2;
+            grid-column:1;
+            justify-self: center;
+            align-self: center;
+        }
+    }
+    
+    $r : 50;
+    $alpha: 50deg;
+    $beta: 100deg;
+    
+    $ua: (1/math.sin($alpha/2) - 1) * $r;
+    $ub: (1/math.sin($beta/2) - 1) * $r;
+    .black.leaf {
+        @include leaf($r, $alpha, $beta, black);
+        scale:1.1;
+        translate: 0 unit(-2);
+    }
+    .green.leaf {
+        @include leaf($r, $alpha, $beta, #3EB812);
+        z-index: 10;
+    }
+    .line{
+        background: black;
+        height: unit(100);
+        width: unit(6);
+        z-index: 15;
+        border-radius: unit(5) unit(5) 0 0;
+        justify-self:center;
+        align-self:end;
+    }
+}
