@@ -40,3 +40,323 @@
         }
     }
 }
+
+#o12 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #D4E6FC;
+    
+    @mixin tangent-triangle($r, $alpha, $dir, $color) {
+        $c: $r / math.tan($alpha/2);
+        $g: $c * math.cos($alpha/2);
+        $f: $c * math.sin($alpha/2);
+        
+        @if ($dir == up) {
+        border-right: #{$f}px solid transparent;
+        border-left: #{$f}px solid transparent;
+        border-bottom: #{$g}px solid $color;
+        }@else {
+        border-right: #{$f}px solid transparent;
+        border-left: #{$f}px solid transparent;
+        border-top: #{$g}px solid $color;
+        }
+    }
+    
+    @mixin leaf-shape($r, $alpha, $beta, $color) {
+        $ua: (1/math.sin($alpha/2) - 1) * $r;
+        $ub: (1/math.sin($beta/2) - 1) * $r;
+        display: grid;
+        grid-template-rows: #{$ua}px #{2*$r}px #{$ub}px;
+        .top {
+        @include tangent-triangle($r, $alpha, up, $color);
+        grid-row: 1 / span 2;
+        grid-column:1;
+        justify-self: center;
+        align-self: start
+        }
+        .bottom {
+        @include tangent-triangle($r, $beta, down, $color);
+        grid-row: 2 / span 2;
+        grid-column:1;
+        justify-self: center;
+        align-self: end
+        }
+    
+        .circle {
+        background: $color;
+        height: #{2*$r}px;
+        width: #{2*$r}px;
+        border-radius: 50%;
+        grid-row: 2;
+        grid-column:1;
+        justify-self: center;
+        align-self: center;
+        }
+    }
+    
+    @mixin leaf($r, $z-index) {
+        z-index: #{$z-index};
+        
+        display: grid;
+        >div {
+        grid-row:1;
+        grid-column:1;
+        }
+        
+        $alpha: 50deg;
+        $beta: 100deg;
+    
+        .black {
+        @include leaf-shape($r, $alpha, $beta, black);
+        scale:1.2;
+        translate: 0 -#{.03 * 2 * $r}px;
+        }
+        .green {
+        @include leaf-shape($r, $alpha, $beta, #3EB812);
+        z-index: #{$z-index + 1};
+        }
+        .line{
+        background: black;
+        height: #{1.2 * 2 * $r}px;
+        width: #{.12 * 2 * $r}px;
+        z-index: 15;
+        border-radius: #{.1* 2 * $r}px #{.1 * 2 * $r}px 0 0;
+        justify-self:center;
+        align-self:end;
+        }
+    }
+    
+    
+    .container {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        > div {
+        grid-row: 1;
+        grid-column:1;
+        }
+        
+        .point {
+        display: none;
+        border-radius: 50%;
+        background: black;
+        height: 10px;
+        width: 10px;
+        z-index: 10000;
+        }
+        
+        $size: 200;
+        height: #{$size}px;
+        width: #{$size}px;
+        border-radius: 50%;
+        
+        
+        $r: 15;
+        $z-index: 10;
+    
+        $alpha: 50deg;
+        $beta: 100deg;
+    
+        $h: (1/math.sin($alpha/2) + 1/math.sin($beta/2)) * $r;
+        
+        .leaf {
+        @include leaf($r, $z-index);
+        }
+        
+        @for $i from 1 to 10 {
+            $angle : 90deg + ($i - 1) * 360deg / 20;
+        .leaf:nth-child(#{2 * $i}) {
+            
+            transform:  translate(#{$size/2 * math.cos($angle)}px, #{$size/2 * math.sin($angle)}px)
+                        rotate(#{-180deg + $angle})
+                        rotate(-#{(180 - $beta)/2})
+                        rotate(-#{2 * $beta - 180})
+                        translateY(#{-$h/2}px);
+        }
+        .leaf:nth-child(#{2 * $i + 1}) {
+            
+            transform:  translate(#{$size/2 * math.cos($angle)}px, #{$size/2 * math.sin($angle)}px)
+                        rotate(#{-180deg + $angle})
+                        rotate(#{(180 - $beta)/2 + 2 * $beta - 180})
+                        translateY(#{-$h/2}px);
+        }
+        }
+        @for $j from 10 to 22 {
+            $i: $j - 10 + 1;
+            $angle : 90deg - ($i - 1) * 360deg / 20;
+        .leaf:nth-child(#{2 * $j}) {
+            
+            transform:  translate(#{$size/2 * math.cos($angle)}px, #{$size/2 * math.sin($angle)}px)
+                        rotate(180deg)
+                        rotate(#{-180deg + $angle})
+                        rotate(-#{(180 - $beta)/2})
+                        rotate(-#{2 * $beta - 180})
+                        translateY(#{-$h/2}px);
+        }
+        .leaf:nth-child(#{2 * $j + 1}) {
+            
+            transform:  translate(#{$size/2 * math.cos($angle)}px, #{$size/2 * math.sin($angle)}px)
+                
+                        rotate(180deg)
+                        rotate(#{-180deg + $angle})
+                        rotate(#{(180 - $beta)/2 + 2 * $beta - 180})
+                        translateY(#{-$h/2}px);
+        }
+        }
+    }
+}
+
+#o13 {
+    $angle: 60deg;
+    $size: 200;
+    $width: 40;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10px);
+
+    @mixin round-triangle($size, $color, $width) {
+        height: #{math.sqrt(3) * $size / 2 + $width}px;
+        width: #{$size + $width}px;
+
+        display: grid;
+        > div {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        .circle {
+            width: #{$width}px;
+            height: #{$width}px;
+            background: $color;
+            border-radius: 50%;
+
+            &:nth-child(1) {
+            align-self: end;
+            justify-self: start;
+            }
+            &:nth-child(2) {
+            align-self: end;
+            justify-self: end;
+            }
+            &:nth-child(3) {
+            align-self: start;
+            justify-self: center;
+            }
+        }
+        
+        .line {
+            background: $color;
+        }
+
+        .line:nth-child(4) {
+            height: #{$width}px;
+            width: #{$size}px;
+            align-self: end;
+            justify-self: start;
+            transform: translateX(-#{$size/2 - $width/2}px)
+            rotate(-60deg)
+            translateX(#{($size)/2}px)
+            }
+        .line:nth-child(5) {
+            height: #{$width}px;
+            width: #{$size}px;
+            align-self: end;
+            justify-self: end;
+            transform: translateX(#{$size/2 - $width/2}px)
+            rotate(60deg)
+            translateX(-#{($size)/2}px);
+                }
+        .line:nth-child(6) {
+            height: #{$width}px;
+            width: #{$size}px;
+            align-self: end;
+            justify-self: center;
+        }
+
+        .triangle {
+            border-bottom: #{math.sqrt(3) * ($size - $width/2) / 2}px solid $color;
+            border-left: #{($size - $width/2) / 2}px solid transparent;
+            border-right: #{($size - $width/2) / 2}px solid transparent;
+            align-self: center;
+            justify-self: center;
+        }
+    }
+
+    .black-triangle {
+    @include round-triangle(110, black, 40);
+    z-index: 10;
+    }
+
+    .blue-triangle {
+    @include round-triangle(100, #59CBE8, 20);
+        z-index: 20;
+        translate: 0 2px;
+    }
+
+    .bottom {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        
+        > div {
+            grid-row: 1;
+            grid-column:1;
+        }
+        
+        justify-self: center;
+        align-self: end;
+    }
+
+    .container {
+        height: 203px;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        > div {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        }
+
+        .top {
+        border-left: 12px solid black;
+        border-right: 12px solid black;
+        width: 30px;
+        height: 100px;
+        z-index: 100;
+        display: grid;
+        justify-items: stretch;
+        align-items: end;
+        
+        .inner {
+            height: 40px;
+            background: #59CBE8;
+        }
+        justify-self: center;
+        align-self: start;
+    }
+
+    .bubble {
+        width: 20px;
+        height: 20px;
+        
+        background: #59CBE8;
+        align-self: start;
+        justify-self: start;
+        
+        border-radius: 50%;
+        
+        &:nth-child(3) {
+            transform: scale(1.2) translate(-20px, -15px) translate(50px, -30px)
+        }
+        &:nth-child(4) {
+            transform: scale(1.5) translate(-50px, 10px) translate(50px, -30px)
+        }
+        
+        &:nth-child(5) {
+            transform:  translate(50px, -30px)
+        }
+    }
+}
