@@ -4724,57 +4724,57 @@ body::-webkit-scrollbar {
   grid-column: 1;
   width: 0;
   height: 0;
-  border-left: 39.3965613429px solid transparent;
-  border-right: 39.3965613429px solid transparent;
-  border-bottom: 400px solid #BC002D;
+  border-left: 78.7931226857px solid transparent;
+  border-right: 78.7931226857px solid transparent;
+  border-bottom: 800px solid #BC002D;
 }
 #o16 .sun :nth-child(1) {
-  transform: translateY(75px) translateY(-200px) rotate(22.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(22.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(2) {
-  transform: translateY(75px) translateY(-200px) rotate(45deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(45deg) translateY(400px);
 }
 #o16 .sun :nth-child(3) {
-  transform: translateY(75px) translateY(-200px) rotate(67.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(67.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(4) {
-  transform: translateY(75px) translateY(-200px) rotate(90deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(90deg) translateY(400px);
 }
 #o16 .sun :nth-child(5) {
-  transform: translateY(75px) translateY(-200px) rotate(112.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(112.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(6) {
-  transform: translateY(75px) translateY(-200px) rotate(135deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(135deg) translateY(400px);
 }
 #o16 .sun :nth-child(7) {
-  transform: translateY(75px) translateY(-200px) rotate(157.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(157.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(8) {
-  transform: translateY(75px) translateY(-200px) rotate(180deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(180deg) translateY(400px);
 }
 #o16 .sun :nth-child(9) {
-  transform: translateY(75px) translateY(-200px) rotate(202.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(202.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(10) {
-  transform: translateY(75px) translateY(-200px) rotate(225deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(225deg) translateY(400px);
 }
 #o16 .sun :nth-child(11) {
-  transform: translateY(75px) translateY(-200px) rotate(247.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(247.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(12) {
-  transform: translateY(75px) translateY(-200px) rotate(270deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(270deg) translateY(400px);
 }
 #o16 .sun :nth-child(13) {
-  transform: translateY(75px) translateY(-200px) rotate(292.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(292.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(14) {
-  transform: translateY(75px) translateY(-200px) rotate(315deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(315deg) translateY(400px);
 }
 #o16 .sun :nth-child(15) {
-  transform: translateY(75px) translateY(-200px) rotate(337.5deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(337.5deg) translateY(400px);
 }
 #o16 .sun :nth-child(16) {
-  transform: translateY(75px) translateY(-200px) rotate(360deg) translateY(200px);
+  transform: translateY(75px) translateY(-400px) rotate(360deg) translateY(400px);
 }
 
 /*# sourceMappingURL=style.css.map */
