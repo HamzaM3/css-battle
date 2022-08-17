@@ -215,7 +215,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(10px);
 
     @mixin round-triangle($size, $color, $width) {
         height: #{math.sqrt(3) * $size / 2 + $width}px;
@@ -314,6 +313,7 @@
         display: grid;
         justify-items: center;
         align-items: center;
+        transform: translateY(10px);
         > div {
             grid-row: 1;
             grid-column: 1;
@@ -358,5 +358,263 @@
         &:nth-child(5) {
             transform:  translate(50px, -30px)
         }
+    }
+}
+
+#o14 {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    background: #da0a0a;
+    
+    .hammer {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        > div {
+            background: #faf333;
+        }
+        .head {
+            width: 90px;
+            height: 30px;
+            
+            display: grid;
+            justify-items: end;
+            align-items: start;
+            transform: scale(1.1);
+        .corner {
+            background: #da0a0a;
+            height: 20px;
+            width: 30px;
+            border-radius: 0 0 0 100%;
+            transform: scale(1.1)
+        }
+        }
+        .handle {
+            width: 20px; 
+            height: 140px;
+        }
+        
+        transform: rotate(-45deg);
+        
+        z-index: 2;
+    }
+    
+    .sickle {
+        display: grid;
+        grid-template-columns: 60px 80px;
+        grid-template-rows: 120px 50px;
+        .yellow-head {
+            height: 120px;
+            width: 130px;
+        
+            background:  #faf333;
+            border-radius: 100%;
+        
+            grid-row: 1;
+            grid-column: 1 / span 2;
+            
+            justify-self: end;
+            align-self: end;
+        }
+        
+        .red-head {
+            height:100px;
+            width: 120px;
+        
+            background: #da0a0a;
+            border-radius:100%;
+        
+            grid-row: 1;
+            grid-column: 1 / span 2;
+            
+            justify-self: start;
+            align-self: center;
+            
+            transform: translateY(-3px)
+        }
+        
+        .handle {
+            height: 60px;
+            width: 15px;
+            
+            background: #faf333;
+            
+            grid-row: 1 / span 2;
+            grid-column: 2;
+            
+            justify-self: start;
+            align-self: end;
+        }
+        
+        .red-handle {
+            height: 100px;
+            background: #da0a0a;
+            
+            grid-row: 1 / span 2;
+            grid-column: 1;
+            
+            justify-self: stretch;
+            align-self: end;
+        }
+        z-index: 1;
+        transform: rotate(45deg) translate(-10px, 25px)
+    }
+    
+    .container {
+        display: grid;
+        > div {
+            grid-row: 1;
+            grid-column: 1;
+        }
+        transform: translate(15px, -10px) scale(.5)
+    }
+      
+}
+
+#o15 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ecefee;
+
+    .nucleus {
+        display: grid;
+        > div {
+            grid-row: 1;
+            grid-column: 1;
+            width: 15px;
+            height: 15px;
+            
+            border-radius: 50%;
+            border: 3px solid black;
+        }
+        $a : math.sqrt(2) / 2;
+        $radius: 18px;
+        :nth-child(1) {
+            transform: translate(0px, -#{$radius});
+            z-index: 6;
+            background: #DD495B
+        }
+        :nth-child(2) {
+            transform: translate(-#{$a*$radius}, -#{$radius/2});
+            z-index: 7;
+            background: #757687;
+        }
+        :nth-child(3) {
+            z-index: 5;
+            background: #DD495B
+        }
+        :nth-child(4) {
+            transform: translate(-#{$a*$radius}, #{$radius/2});
+            z-index: 4;
+            background: #DD495B
+        }
+        :nth-child(5) {
+            transform: translate(#{$a*$radius}, -#{$radius/2});
+            z-index: 3;
+            background: #757687;
+        }
+        :nth-child(6) {
+            transform: translate(#{$a*$radius}, #{$radius/2});
+            z-index: 2;
+            background: #757687;
+        }
+        :nth-child(7) {
+            transform: translate(0px, #{$radius});
+            z-index: 1;
+            background: #DD495B
+        }
+    }
+
+    .electrons{
+        display: grid;
+        > div {
+            grid-row:1;
+            grid-column: 1;
+            
+            border-radius: 50%;
+            border: 3px solid #74AEAB;
+            
+            height: 100px;
+            width: 200px;
+            
+            display: grid;
+            &::before {
+                content: '';
+                display: block;
+                width: 12px;
+                height: 12px;
+                
+                border-radius: 50%;
+                
+                background: #59CBE8;
+                align-self:center;
+                justify-self: end;
+                
+                transform: translateX(8px)
+            }
+        }
+        :nth-child(1) {
+            transform: rotate(-120deg)
+        }
+        :nth-child(2) {
+            transform: rotate(120deg)
+        }
+    }
+
+    .container {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        > div {
+            grid-row: 1;
+            grid-column:1;
+        }
+    }
+}
+
+#o16 {
+    background: white;
+    
+    $red: #BC002D;
+    
+    $angle: 360deg / 32;
+    $h: 400px;
+    $r : math.tan($angle/2) * $h;
+    
+    $size: 150px;
+        
+    .sun {
+        width: #{$size};
+        height: #{$size};
+        
+        border-radius: 50%;
+        background: $red;
+        
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        
+        .ray {
+            grid-row:1;
+            grid-column: 1;
+            
+            width: 0;
+            height:0;
+            
+            border-left: #{$r} solid transparent;
+            border-right: #{$r} solid transparent;
+            border-bottom: #{$h} solid $red;
+        }
+        
+        @for $i from 1 through 16 {
+            $alpha: 2 * $i * $angle;
+            :nth-child(#{$i}) {
+                transform: translateY(#{$size/2}) translateY(-#{$h/2}) rotate($alpha) translateY(#{$h/2})
+            }
+        }
+        
+        transform: translate(80px, 75px)
     }
 }
